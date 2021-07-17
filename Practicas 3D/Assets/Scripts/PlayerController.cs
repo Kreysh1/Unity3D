@@ -7,18 +7,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private CharacterController controller;
 
-    public float horizontalMove;
-    public float verticalMove;
-    public float flyMove;
-    private Vector3 playerInput;
-    
-    public float speed;
-    private Vector3 movePlayer;
-
     public Camera mainCamera;
     private Vector3 camForward;
     private Vector3 camRight;
-    private Vector3 camUp;
+    public Vector3 camUp;
+
+
+    public float horizontalMove;
+    public float verticalMove;
+    public float flyMove;
+
+    private Vector3 playerInput;
+    private Vector3 movePlayer;
+
+    public float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -41,9 +43,18 @@ public class PlayerController : MonoBehaviour
 
         camDirection();
 
-        movePlayer = playerInput.x * camRight + playerInput.z * camForward + playerInput.y * camUp;
+        movePlayer = playerInput.x * camRight + playerInput.z * camForward + playerInput.y * transform.up;
 
         controller.Move(movePlayer * speed * Time.deltaTime);
+
+        if (Input.GetButton("Run"))
+        {
+            speed = 15f;
+        }
+        else
+        {
+            speed = 10f;
+        }
 
     }
 

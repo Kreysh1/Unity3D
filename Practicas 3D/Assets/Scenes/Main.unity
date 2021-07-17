@@ -2068,11 +2068,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1671961652}
+  mainCamera: {fileID: 963194227}
+  camUp: {x: 0, y: 0, z: 0}
   horizontalMove: 0
   verticalMove: 0
   flyMove: 0
   speed: 10
-  mainCamera: {fileID: 963194227}
 --- !u!143 &1671961652
 CharacterController:
   m_ObjectHideFlags: 0
