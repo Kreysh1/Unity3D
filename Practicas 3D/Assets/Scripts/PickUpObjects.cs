@@ -7,6 +7,7 @@ public class PickUpObjects : MonoBehaviour
     public GameObject ObjectToPickup;
     public GameObject pickedObject;
     public Transform interactionZone;
+    public float throwForce;
 
     // Update is called once per frame
     void Update()
@@ -28,11 +29,20 @@ public class PickUpObjects : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("soltar");
                 pickedObject.GetComponent<PickableObject>().isPickable = true;
                 pickedObject.transform.SetParent(null);
                 pickedObject.GetComponent<Rigidbody>().useGravity = true;
                 pickedObject.GetComponent<Rigidbody>().isKinematic = false;
+                pickedObject = null;
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                pickedObject.GetComponent<PickableObject>().isPickable = true;
+                pickedObject.transform.SetParent(null);
+                pickedObject.GetComponent<Rigidbody>().useGravity = true;
+                pickedObject.GetComponent<Rigidbody>().isKinematic = false;
+                pickedObject.GetComponent<Rigidbody>().AddForce(interactionZone.transform.forward * throwForce);
                 pickedObject = null;
             }
         }
