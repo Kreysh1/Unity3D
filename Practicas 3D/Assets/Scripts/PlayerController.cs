@@ -20,7 +20,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerInput;
     private Vector3 movePlayer;
 
-    public float speed;
+    private float speed;
+    [Range(10,15)] public float minSpeed;
+    [Range(16, 25)] public float maxSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -49,11 +51,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButton("Run"))
         {
-            speed = 15f;
+            speed = maxSpeed;
         }
         else
         {
-            speed = 10f;
+            speed = minSpeed;
         }
 
     }
