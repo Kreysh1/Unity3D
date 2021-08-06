@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class DroneController : MonoBehaviour
 {
     [SerializeField]
     private CharacterController controller;
@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 movePlayer;
 
     private float speed;
-    [Range(10, 15)] public float minSpeed;
+    [Range(10,15)] public float minSpeed;
     [Range(16, 25)] public float maxSpeed;
 
     // Start is called before the first frame update
